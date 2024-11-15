@@ -3,6 +3,7 @@ import { IoTrash } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { RemoveToCart } from "../redux/slice/CartSlice";
 import { increaseQty, descreaseQty } from "../redux/slice/CartSlice";
+import toast from "react-hot-toast";
 const CartItem = ( { item } ) => {
 
     const dispatch = useDispatch();
@@ -15,7 +16,13 @@ const CartItem = ( { item } ) => {
                     <div className="flex justify-center items-center gap-2  right-7">
                         <h2 className="font-bold text-gray-800">{ item.name } </h2>
                         <IoTrash 
-                        onClick={()=>dispatch(RemoveToCart(item))}
+                        onClick={ ()=> { 
+                                dispatch(
+                                    RemoveToCart(item)
+                                ); 
+                                toast.error(` removed ${item.name}`)
+                            } 
+                        }
                         className="absolute right-7 cursor-pointer"/>
                     </div>
                     <div className="flex justify-between">

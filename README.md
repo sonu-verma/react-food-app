@@ -11,6 +11,8 @@ https://app.netlify.com/
 
 https://www.flaticon.com/search?word=food
 
+react-hot-toast
+
 useContext -> to share data between components
 useRef -> watch on any elements
 useReducer -> to do action on single state (multiple state ko single function me use karne k liye)

@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux"
 import { AddToCart } from "../redux/slice/CartSlice"
-const FoodCard = ({ item }) => {
+const FoodCard = ({ item, handleToast }) => {
     const dispatch = useDispatch();
+
     return (
         <>
             <div className="font-bold w-[250px] bg-white p-5 flex flex-col rounded-lg" key={item.id}>
@@ -18,15 +19,11 @@ const FoodCard = ({ item }) => {
                 </p>
                 <div className="flex">
                     <button 
-                        onClick={
-                            () => dispatch(
-                                AddToCart(
-                                    { 
-                                        ...item, qty: 1 
-                                    }
-                                )
-                            )
-                            } 
+                        onClick={ () => {dispatch(
+                                AddToCart({ ...item, qty: 1 })
+                            );
+                            handleToast(item.name);
+                        } }
                         className="font-bold text-left bg-green-500 hover:bg-green-600 ml-auto rounded-md p-1 hover:text-white">
                             Add to cart
                     </button>
