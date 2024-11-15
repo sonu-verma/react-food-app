@@ -20,3 +20,8 @@ useMemo -> Manage dependencies
 useCallback -> performance optimization
 { memo } -> load only component which change
 useCallback => can act on only if state change
+
+
+Deployment
+https://app.netlify.com/
+https://vercel.com/
